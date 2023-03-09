@@ -51,7 +51,7 @@ const getRandomInteger = (min, max) => Math.floor(Math.random() * (max - min + 1
 
 const addComment = (index) => ({
   id: index,
-  avatar: `photos/avatar - ${getRandomInteger(1, AVATAR_COUNT)}.jpg`,
+  avatar: `img/${index + 1}.svg`,
   message: COMMENT_LINES[getRandomInteger(0, (COMMENT_LINES.length - 1))],
   name: NAMES[getRandomInteger(0, (NAMES.length - 1))],
 });
@@ -61,8 +61,8 @@ const addPhoto = (index) => ({
   url: `photos/${index + 1}.jpg`,
   description: DESCRIPTIONS[getRandomInteger(0, (DESCRIPTIONS.length - 1))],
   likes: getRandomInteger(Likes.MIN, Likes.MAX),
-  comments: Array.from({length: getRandomInteger(Comments.MIN, Comments.MAX)}, (_, index) => {
-    addComment(index);
+  comments: Array.from({length: getRandomInteger(Comments.MIN, Comments.MAX)}, (_, idx) => {
+    addComment(idx);
   }),
 });
 
