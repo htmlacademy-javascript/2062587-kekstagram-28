@@ -1,5 +1,4 @@
 const PHOTO_COUNT = 25;
-const AVATAR_COUNT = 6;
 const NAMES = ['Илья', 'Анна', 'Савелий', 'Андрей', 'Григорий', 'Анна', 'Татьяна'];
 const COMMENT_LINES = [
   'Всё отлично!',
@@ -44,7 +43,7 @@ const Likes = {
 
 const Comments = {
   MIN: 1,
-  MAX: 5
+  MAX: 6
 };
 const photos = [];
 const getRandomInteger = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
@@ -63,6 +62,7 @@ const addPhoto = (index) => ({
   likes: getRandomInteger(Likes.MIN, Likes.MAX),
   comments: Array.from({length: getRandomInteger(Comments.MIN, Comments.MAX)}, (_, idx) => {
     addComment(idx);
+    return addComment(idx);
   }),
 });
 
