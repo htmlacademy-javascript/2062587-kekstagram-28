@@ -60,10 +60,7 @@ const addPhoto = (index) => ({
   url: `photos/${index + 1}.jpg`,
   description: DESCRIPTIONS[getRandomInteger(0, (DESCRIPTIONS.length - 1))],
   likes: getRandomInteger(Likes.MIN, Likes.MAX),
-  comments: Array.from({length: getRandomInteger(Comments.MIN, Comments.MAX)}, (_, idx) => {
-    addComment(idx);
-    return addComment(idx);
-  }),
+  comments: Array.from({length: getRandomInteger(Comments.MIN, Comments.MAX)}, (_, idx) => addComment(idx)),
 });
 
 const addPhotos = () => {
