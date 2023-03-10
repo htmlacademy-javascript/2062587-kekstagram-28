@@ -1,3 +1,4 @@
+
 const PHOTO_COUNT = 25;
 const NAMES = ['Илья', 'Анна', 'Савелий', 'Андрей', 'Григорий', 'Анна', 'Татьяна'];
 const COMMENT_LINES = [
