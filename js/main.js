@@ -1,6 +1,7 @@
 import './data.js';
-import { addPhotos} from './data.js';
+import {photos} from './data.js';
 import {createElements} from './pictures.js';
 
-const descriptionData = addPhotos();
+/*const descriptionData = addPhotos();*/
+const descriptionData = photos.slice();
 createElements(descriptionData);
