@@ -2,8 +2,8 @@ const COMMENTS_STEP = 5;
 
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureImage = bigPicture.querySelector('.big-picture__img img');
-const pictureCloseButton = document.querySelector('.big-picture__cansel');
-const LikesCount = bigPicture.querySelector('.like-count');
+const pictureCloseButton = document.querySelector('.big-picture__cancel');
+const likesCount = bigPicture.querySelector('.likes-count');
 const pictureCaption = bigPicture.querySelector('.social__caption');
 const socialComments = bigPicture.querySelector('.social__comments');
 const socialCommentsCount = bigPicture.querySelector('.social__comment-count');
@@ -35,7 +35,7 @@ const renderComments = () => {
     const imgComment = document.createElement('img');
     const textComment = document.createElement('p');
 
-    newComment.classList.add('social__coment');
+    newComment.classList.add('social__comment');
     imgComment.classList.add('social--picture');
     textComment.classList.add('social__text');
 
@@ -59,7 +59,7 @@ const onLoadCommentsButtonClick = () => {
 
 const closeBigPicture = () =>{
   bigPicture.classList.add('hidden');
-  document.body.classList.remove('model-open');
+  document.body.classList.remove('modal-open');
   commentsCount = COMMENTS_STEP;
   currentComments = [];
   socialFooterText.value = '';
@@ -67,11 +67,11 @@ const closeBigPicture = () =>{
 
 
 const onBigPictureEscKeyDown = (evt) => {
-  closeOnEscKeyDown(evt, () => {
+  if (evt.key === 'Escape') {
     closeBigPicture();
     document.removeEventListener('keydown', onBigPictureEscKeyDown);
-    loadComments.removeEventListener('click', onPadCommentsButtonClick);
-  });
+    loadComments.removeEventListener('click', onLoadCommentsButtonClick);
+  }
 };
 
 
@@ -87,11 +87,11 @@ const showBigPicture = (url, comments, likes, description) => {
   document.body.classList.add('modal-open');
 
   bigPictureImage.src = url;
-  LikesCount.textContent = likes;
+  likesCount.textContent = likes;
   pictureCaption.textContent = description;
 
+  currentComments = comments.slice();
   renderComments();
-
   document.addEventListener('keydown', onBigPictureEscKeyDown);
   pictureCloseButton.addEventListener('click', onCloseBigPictureClick);
 };
