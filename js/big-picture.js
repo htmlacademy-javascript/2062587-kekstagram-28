@@ -35,7 +35,7 @@ const renderComments = () => {
     const imgComment = document.createElement('img');
     const textComment = document.createElement('p');
 
-    newComment.classList.add('social__coment');
+    newComment.classList.add('social__comment');
     imgComment.classList.add('social--picture');
     textComment.classList.add('social__text');
 
@@ -59,7 +59,7 @@ const onLoadCommentsButtonClick = () => {
 
 const closeBigPicture = () =>{
   bigPicture.classList.add('hidden');
-  document.body.classList.remove('model-open');
+  document.body.classList.remove('modal-open');
   commentsCount = COMMENTS_STEP;
   currentComments = [];
   socialFooterText.value = '';
@@ -67,11 +67,11 @@ const closeBigPicture = () =>{
 
 
 const onBigPictureEscKeyDown = (evt) => {
-  closeOnEscKeyDown(evt, () => {
+  if (evt.key === 'Escape') {
     closeBigPicture();
     document.removeEventListener('keydown', onBigPictureEscKeyDown);
-    loadComments.removeEventListener('click', onPadCommentsButtonClick);
-  });
+    loadComments.removeEventListener('click', onLoadCommentsButtonClick);
+  }
 };
 
 
