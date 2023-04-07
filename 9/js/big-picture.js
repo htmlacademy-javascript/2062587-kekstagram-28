@@ -1,4 +1,4 @@
-const COMMENTS_STEP = 20;
+const COMMENTS_STEP = 6;
 
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureImage = bigPicture.querySelector('.big-picture__img img');
