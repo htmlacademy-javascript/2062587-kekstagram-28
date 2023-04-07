@@ -44,7 +44,7 @@ const Likes = {
 
 const Comments = {
   MIN: 1,
-  MAX: 6
+  MAX: 20
 };
 const photos = [];
 
