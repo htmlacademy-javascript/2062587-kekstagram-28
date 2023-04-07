@@ -44,13 +44,13 @@ const Likes = {
 
 const Comments = {
   MIN: 1,
-  MAX: 6
+  MAX: 20
 };
 const photos = [];
 
 const addComment = (index) => ({
   id: index,
-  avatar: `img/${index + 1}.svg`,
+  avatar: `./img/avatar-${index + 1}.svg`,
   message: COMMENT_LINES[getRandomInteger(0, (COMMENT_LINES.length - 1))],
   name: NAMES[getRandomInteger(0, (NAMES.length - 1))],
 });
