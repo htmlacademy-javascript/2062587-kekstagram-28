@@ -1,4 +1,4 @@
-const COMMENTS_STEP = 5;
+const COMMENTS_STEP = 20;
 
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureImage = bigPicture.querySelector('.big-picture__img img');
@@ -92,6 +92,7 @@ const showBigPicture = (url, comments, likes, description) => {
 
   currentComments = comments.slice();
   renderComments();
+  loadComments.addEventListener('click', onLoadCommentsButtonClick);
   document.addEventListener('keydown', onBigPictureEscKeyDown);
   pictureCloseButton.addEventListener('click', onCloseBigPictureClick);
 };
